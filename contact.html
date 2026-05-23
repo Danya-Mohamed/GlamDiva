@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GlamDiva</title>
+  <link href="master.css" rel="stylesheet">
+  <style>
+    /* Your previous styles here (already included above) */
+    /* Add side menu styles */
+    #side-menu {
+      position: fixed;
+      top: 0;
+      left: -250px;
+      width: 250px;
+      height: 100%;
+      background-color: #ff4da6;
+      color: white;
+      padding: 20px;
+      transition: 0.3s;
+      z-index: 1000;
+    }
+
+    #menu-toggle {
+      position: fixed;
+      top: 0;
+      left: 20px;
+      z-index: 1001;
+      background: #ff4da6;
+      color: white;
+      border: none;
+      padding: 10px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .slideshow-container {
+      max-width: 500px;
+      position: relative;
+      margin: auto;
+    }
+
+    .slide {
+      display: none;
+      width: 100%;
+    }
+
+    .slide img {
+      width: 100%;
+      border-radius: 10px;
+    }
+
+    .form-section {
+      text-align: center;
+      margin: 40px;
+    }
+
+    input, button {
+      margin: 10px;
+      padding: 10px;
+    }
+
+    .error {
+      color: red;
+      font-size: 0.9em;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>GlamDiva</h1>
+    <nav>
+      <a href="#">Home</a>
+      <a href="#">New Arrivals</a>
+      <a href="#">Tops</a>
+      <a href="#">Dresses</a>
+      <a href="#">Sale</a>
+      <a href="#">Contact</a>
+    </nav>
+    <button id="theme-switch">🌓</button>
+  </header>
+
+  <button id="menu-toggle">☰ Menu</button>
+  <div id="side-menu">
+    <h3>Menu</h3>
+    <p><a href="#">Home</a></p>
+    <p><a href="#">Shop</a></p>
+    <p><a href="#">Deals</a></p>
+  </div>
+
+  <section class="hero">
+    <h1>Trendy Fashion at Hot Prices</h1>
+  </section>
+
+  <section class="slideshow-container">
+    <div class="slide"><img src="Dress.jpeg" alt="Slide 1"></div>
+    <div class="slide"><img src="Sunhoney What’s The Best That Could Happen T-shirt - L.jpg" alt="Slide 2"></div>
+    <div class="slide"><img src="Natural beauty_ Female beauty.jpg" alt="Slide 3"></div>
+  </section>
+
+  <section class="form-section">
+    <h2>Sign Up</h2>
+    <form id="signup-form">
+      <input type="text" id="name" placeholder="Name" required>
+      <input type="email" id="email" placeholder="Email" required>
+      <input type="password" id="password" placeholder="Password" required>
+      <button type="submit">Register</button>
+      <p class="error" id="form-error"></p>
+    </form>
+  </section>
+
+  <section class="products">
+    <!-- Product Cards (same as earlier) -->
+  </section>
+
+  <footer>
+    &copy; 2025 GlamDiva Store | All rights reserved.
+  </footer>
+
+  <script>
+    // Dark mode toggle
+    let darkmode = localStorage.getItem('darkmode');
+    const themeSwitch = document.getElementById('theme-switch');
+
+    const enableDarkmode = () => {
+      document.body.classList.add('darkmode');
+      localStorage.setItem('darkmode', 'active');
+    };
+
+    const disableDarkmode = () => {
+      document.body.classList.remove('darkmode');
+      localStorage.setItem('darkmode', 'null');
+    };
+
+    if(darkmode === 'active') enableDarkmode();
+
+    themeSwitch.addEventListener('click', () => {
+      darkmode = localStorage.getItem('darkmode');
+      darkmode !== 'active' ? enableDarkmode() : disableDarkmode();
+    });
+
+    // Side Menu Toggle
+    const menuToggle = document.getElementById('menu-toggle');
+    const sideMenu = document.getElementById('side-menu');
+
+    menuToggle.addEventListener('click', () => {
+      sideMenu.style.left = sideMenu.style.left === '0px' ? '-250px' : '0px';
+    });
+
+    // Slideshow
+    let slideIndex = 0;
+    const slides = document.getElementsByClassName('slide');
+    const showSlides = () => {
+      for (let i = 0; i < slides.length; i++) {
+        slides[i].style.display = 'none';
+      }
+      slideIndex++;
+      if (slideIndex > slides.length) slideIndex = 1;
+      slides[slideIndex - 1].style.display = 'block';
+      setTimeout(showSlides, 3000);
+    };
+    showSlides();
+
+    // Form validation
+    document.getElementById('signup-form').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const name = document.getElementById('name').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const password = document.getElementById('password').value;
+      const error = document.getElementById('form-error');
+      error.textContent = '';
+
+      if (name === '' || email === '' || password === '') {
+        error.textContent = 'All fields are required.';
+        return;
+      }
+      if (!email.includes('@') || !email.includes('.')) {
+        error.textContent = 'Please enter a valid email address.';
+        return;
+      }
+      if (password.length < 6) {
+        error.textContent = 'Password must be at least 6 characters long.';
+        return;
+      }
+
+      alert('Registration successful!');
+      this.reset();
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GlamDiva</title>
+  <link href="master.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:wght@500&display=swap" rel="stylesheet">
+  <script type="text/javascript" src="darkmode.js" defer>
+  let darkmode = localStorage.getItem('darkmode')
+const themeSwitch = document.getElementById('theme-switch')
+
+const enableDarkmode = () => {
+    document.body.classList.add('darkmode')
+    localStorage.setItem('darkmode', 'active')
+}
+
+const disableDarkmode = () => {
+    document.body.classList.remove('darkmode')
+    localStorage.setItem('darkmode', 'null')
+}
+
+if(darkmode === "active") enableDarkmode()
+
+themeSwitch.addEventListener("click", () => {
+    darkmode = localStorage.getItem('darkmode')
+    darkmode !== "active" ? enableDarkmode() : disableDarkmode()
+})
+
+
+let currentSlide = 0;
+  const slides = document.querySelectorAll('.slide');
+
+  function showSlide(index) {
+    slides.forEach((slide, i) => {
+      slide.style.display = i === index ? 'block' : 'none';
+    });
+  }
+
+  function nextSlide() {
+    currentSlide = (currentSlide + 1) % slides.length;
+    showSlide(currentSlide);
+  }
+
+  showSlide(currentSlide);
+  setInterval(nextSlide, 3000);
+
+  const tabButtons = document.querySelectorAll('.tab-btn');
+  const tabPanels = document.querySelectorAll('.tab-panel');
+
+  tabButtons.forEach(button => {
+    button.addEventListener('click', () => {
+      const target = button.dataset.tab;
+
+      // Remove active states
+      tabButtons.forEach(btn => btn.classList.remove('active'));
+      tabPanels.forEach(panel => panel.classList.remove('active'));
+
+      // Activate selected
+      button.classList.add('active');
+      document.getElementById(target).classList.add('active');
+    });
+  });
+  document.addEventListener("DOMContentLoaded", () => {
+  let currentSlide = 0;
+  const slides = document.querySelectorAll('.slide');
+
+  function showSlide(index) {
+    slides.forEach((slide, i) => {
+      slide.style.display = i === index ? 'block' : 'none';
+    });
+  }
+
+  function nextSlide() {
+    currentSlide = (currentSlide + 1) % slides.length;
+    showSlide(currentSlide);
+  }
+
+  showSlide(currentSlide);
+  setInterval(nextSlide, 3000);
+});
+</script>
+<style>
+    :root {
+      --base-color: #ff4da6;
+      --accent-color: #ffa0cb;
+      --background-light: #ffe6f0;
+      --background-dark: #3b0a2b;
+      --text-light: #333;
+      --text-dark: #f5f5f5;
+      --card-bg-light: #ffffff;
+      --card-bg-dark: #4a154b;
+      --primary-color:rgb(0, 0, 0);
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: var(--background-light);
+      margin: 0;
+      padding: 0;
+      color: var(--text-light);
+      position: relative;
+    }
+
+    /* Background image with low opacity */
+    body::before {
+      content: "";
+      background-image: url("ll9.png");
+      /* background-color: #ccccccbf; */
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      opacity: 0.3;
+      z-index: -1;
+    }
+
+    header {
+      background-color: var(--base-color);
+      color: rgb(114, 114, 114);
+      padding: 30px;
+      text-align: center;
+    }
+
+    header h1 {
+      font-family: 'Great Vibes', cursive;
+      color: #ffffff;
+      font-size: 4rem;
+      letter-spacing: 1.5px;
+      margin-bottom: 10px;
+    }
+
+    nav a {
+      font-family: 'Playfair Display', serif;
+      color: #fcc9e0;
+      margin: 0 15px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: color 0.3s;
+    }
+    .tab-nav {
+  display: flex;
+  justify-content: center;
+  background-color: var(--base-color);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.tab-btn {
+  flex: 1;
+  text-align: center;
+  padding: 15px;
+  background: none;
+  border: none;
+  color: white;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
+  text-decoration: none;
+}
+
+.tab-btn:hover,
+.tab-btn.active {
+    color:#333;
+  background-color: var(--accent-color);
+}
+.btn {
+        font-family: 'Playfair Display', serif;
+
+              position: relative;
+              overflow: hidden;
+              background-color: #ff4da6;
+              border: none;
+              padding: 15px 25px;
+              color: white;
+              border-radius: 30px;
+              font-size: 16px;
+              cursor: pointer;
+              z-index: 1;
+              transition: color 0.3s ease;
+            }
+        
+            .btn::before {
+              content: '';
+              position: absolute;
+              left: 0;
+              bottom: -100%;
+              width: 100%;
+              height: 100%;
+              background: white;
+              z-index: 0;
+              transition: bottom 0.3s ease;
+              border-radius: 30px;
+            }
+        
+            .btn:hover::before {
+              bottom: 0;
+            }
+        
+            .btn span {
+              position: relative;
+              z-index: 2;
+            }
+        
+            .btn:hover {
+              color: #ff4da6;
+            }
+.products {
+              display: flex;
+              flex-wrap: wrap;
+              justify-content: center;
+              gap: 20px;
+              padding: 30px;
+            }
+        
+            .product-card {
+              background-color: white;
+              border-radius: 15px;
+              box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+              width: 220px;
+              text-align: center;
+              padding: 15px;
+              transition: transform 0.3s;
+            }
+        
+            .product-card:hover {
+              transform: scale(1.05);
+            }
+        
+            .product-card img {
+              width: 100%;
+              border-radius: 10px;
+            }
+#theme-switch {
+      height: 50px;
+       width: 50px;
+       padding: 0;       
+       border-radius: 50%;      
+       background-color: white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: fixed;
+        top: 20px;
+        right: 20px;   
+        cursor: pointer;
+        z-index: 11;    
+    }
+
+     #theme-switch svg{
+        fill: var(--primary-color);
+            }
+      #theme-switch svg:last-child{
+        display: none;      
+            }      
+            
+            .darkmode #theme-switch svg:first-child{
+              display: none;
+            }
+            .darkmode #theme-switch svg:last-child{
+              display: block;
+            }
+          
+
+    .darkmode {
+      --base-color: #2d0b1c;
+      --accent-color: #b65179;
+      --background-light: #2b1020;
+      --text-light: #f5f5f5;
+      --card-bg-light: #3b1b2a;
+    }
+
+    .darkmode body {
+      background-color: #ffc9e3;
+      color: var(--text-light);
+    }
+
+    .darkmode header,
+    .darkmode footer {
+      background-color: var(--base-color);
+      color: var(--text-light);
+    }
+
+    
+    .darkmode .hero,
+    .darkmode .btn {
+      color: var(--text-light);
+    }
+
+    .darkmode .hero h1 {
+      background-color: rgb(40, 40, 40);
+    }
+
+    .darkmode .hero {
+      background-color: #ffc9e3;
+    }
+
+.darkmode nav a{
+      color: #929091; 
+    }
+
+    .darkmode .btn {
+      background-color: var(--accent-color);
+    }
+
+    .darkmode .btn:hover {
+      background-color: #db729a;
+      color: #db729a;
+    }
+
+    .darkmode .product-card {
+      background-color: var(--card-bg-light);
+      color: var(--text-light);
+    }
+    footer {
+      background-color: var(--base-color);
+      color: white;
+      text-align: center;
+      padding: 15px;
+      margin-top: 40px;
+    }
+</style>
+</head>
+<body>
+    <header>
+        <h1>GlamDiva</h1>
+            <nav>
+              <a href="Home.php">Home</a>
+              <a href="NewArrivals.html">New Arrivals</a>
+              <a href="Sale.html">Sale</a>
+              <a href="login.php">Contact</a>
+            </nav>
+            <button id="theme-switch">
+              <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e3e3e3"><path d="M480-120q-150 0-255-105T120-480q0-150 105-255t255-105q14 0 27.5 1t26.5 3q-41 29-65.5 75.5T444-660q0 90 63 153t153 63q55 0 101-24.5t75-65.5q2 13 3 26.5t1 27.5q0 150-105 255T480-120Z"/></svg>
+              <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e3e3e3"><path d="M480-280q-83 0-141.5-58.5T280-480q0-83 58.5-141.5T480-680q83 0 141.5 58.5T680-480q0 83-58.5 141.5T480-280ZM200-440H40v-80h160v80Zm720 0H760v-80h160v80ZM440-760v-160h80v160h-80Zm0 720v-160h80v160h-80ZM256-650l-101-97 57-59 96 100-52 56Zm492 496-97-101 53-55 101 97-57 59Zm-98-550 97-101 59 57-100 96-56-52ZM154-212l101-97 55 53-97 101-59-57Z"/></svg>
+
+            </button>
+    </header>
+    <section class="tab-nav">
+  <a href="shop.html" ><button class="tab-btn " data-tab="shop">Shop Now</button></a>
+ <a href="Dresses.html"> <button class="tab-btn" data-tab="dress">Dresses</button></a>
+ <a href="Blouse.html"> <button class="tab-btn" data-tab="Blouses">Blouse</button></a>
+  <a href="SummerOutfits.html"><button class="tab-btn" data-tab="SummerOutfits">Summer Outfits</button></a>
+  <a href="WinterOutfits.html"><button class="tab-btn" data-tab="WinterOutfits">Winter Outfits</button></a>
+  <a href="TrenchCoats.html"><button class="tab-btn" data-tab="trench coats">Trench Coats</button></a>
+    <a href="AccessoriesPack.html"><button class="tab-btn active" data-tab="trench coats">Accessories Pack</button></a>
+
+</section>
+
+
+    <section class="products">
+            <div class="product-card">
+              <img src="jew1.jpg" alt="Dress 1">
+              <h3>Dress</h3>
+              <p>$19.99</p>
+              <button class="btn"><span>Add to Cart</span></button>
+            </div>
+            <div class="product-card">
+              <img src="jew2.jpg"  alt="Summer Look">
+              <h3>Summer Look</h3>
+              <p>$15.99</p>
+              <button class="btn"><span>Add to Cart</span></button>
+            </div>
+            <div class="product-card">
+              <img src="jew3.jpg" alt="T-Shirt">
+              <h3>MakeUp</h3>
+              <p>$9.99</p>
+              <button class="btn"><span>Add to Cart</span></button>
+            </div>
+            <div class="product-card">
+              <img src="jew4.jpg" alt="Accessories">
+              <h3>Accessories Pack</h3>
+              <p>$5.99</p>
+              <button class="btn"><span>Add to Cart</span></button>
+            </div>
+            <div class="product-card">
+              <img src="jew5.jpg" alt="Accessories">
+              <h3>Accessories Pack</h3>
+              <p>$5.99</p>
+              <button class="btn"><span>Add to Cart</span></button>
+            </div>
+            <div class="product-card">
+              <img src="jew6.jpg" alt="Accessories">
+              <h3>Accessories Pack</h3>
+              <p>$5.99</p>
+              <button class="btn"><span>Add to Cart</span></button>
+            </div>
+            <div class="product-card">
+              <img src="jew7.jpg" alt="Accessories">
+              <h3>Accessories Pack</h3>
+              <p>$5.99</p>
+              <button class="btn"><span>Add to Cart</span></button>
+            </div>
+            <div class="product-card">
+              <img src="jew8.jpg" alt="Accessories">
+              <h3>Accessories Pack</h3>
+              <p>$5.99</p>
+              <button class="btn"><span>Add to Cart</span></button>
+            </div>
+            <div class="product-card">
+              <img src="jew9.jpg" alt="Accessories">
+              <h3>Accessories Pack</h3>
+              <p>$5.99</p>
+              <button class="btn"><span>Add to Cart</span></button>
+            </div>
+            <div class="product-card">
+              <img src="jew10.jpg" alt="Accessories">
+              <h3>Accessories Pack</h3>
+              <p>$5.99</p>
+              <button class="btn"><span>Add to Cart</span></button>
+            </div>
+            <div class="product-card">
+              <img src="jew11.jpg" alt="Accessories">
+              <h3>Accessories Pack</h3>
+              <p>$5.99</p>
+              <button class="btn"><span>Add to Cart</span></button>
+            </div>
+            <div class="product-card">
+              <img src="jew12.jpg" alt="Accessories">
+              <h3>Accessories Pack</h3>
+              <p>$5.99</p>
+              <button class="btn"><span>Add to Cart</span></button>
+            </div>
+            <div class="product-card">
+              <img src="jew13.jpg" alt="Accessories">
+              <h3>Accessories Pack</h3>
+              <p>$5.99</p>
+              <button class="btn"><span>Add to Cart</span></button>
+            </div>
+            <div class="product-card">
+              <img src="jew14.jpg" alt="Accessories">
+              <h3>Accessories Pack</h3>
+              <p>$5.99</p>
+              <button class="btn"><span>Add to Cart</span></button>
+            </div>
+            <div class="product-card">
+              <img src="jew15.jpg" alt="Accessories">
+              <h3>Accessories Pack</h3>
+              <p>$5.99</p>
+              <button class="btn"><span>Add to Cart</span></button>
+            </div>
+            <div class="product-card">
+              <img src="jew16.jpg" alt="Accessories">
+              <h3>Accessories Pack</h3>
+              <p>$5.99</p>
+              <button class="btn"><span>Add to Cart</span></button>
+            </div>
+            <div class="product-card">
+              <img src="jew17.jpg" alt="Accessories">
+              <h3>Accessories Pack</h3>
+              <p>$5.99</p>
+              <button class="btn"><span>Add to Cart</span></button>
+            </div>
+          </section>
+
+          <footer>
+            &copy; 2025 GlamDiva Store | All rights reserved.
+          </footer>
+</body>
+</html>

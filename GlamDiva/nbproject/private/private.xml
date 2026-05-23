@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-private xmlns="http://www.netbeans.org/ns/project-private/1">
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
+    <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+        <group>
+            <file>file:/C:/Users/janjk/OneDrive/Documents/NetBeansProjects/GlamDiva/src/controllers/AddItemController.java</file>
+            <file>file:/C:/Users/janjk/OneDrive/Documents/NetBeansProjects/GlamDiva/src/controllers/DashboardController.java</file>
+            <file>file:/C:/Users/janjk/OneDrive/Documents/NetBeansProjects/GlamDiva/src/App/main.java</file>
+            <file>file:/C:/Users/janjk/OneDrive/Documents/NetBeansProjects/GlamDiva/src/models/CollectionManager.java</file>
+            <file>file:/C:/Users/janjk/OneDrive/Documents/NetBeansProjects/GlamDiva/src/models/FashionItem.java</file>
+            <file>file:/C:/Users/janjk/OneDrive/Documents/NetBeansProjects/GlamDiva/src/controllers/LoginController.java</file>
+            <file>file:/C:/Users/janjk/OneDrive/Documents/NetBeansProjects/GlamDiva/src/glamdiva/GlamDiva.java</file>
+            <file>file:/C:/Users/janjk/OneDrive/Documents/NetBeansProjects/GlamDiva/src/models/User.java</file>
+            <file>file:/C:/Users/janjk/OneDrive/Documents/NetBeansProjects/GlamDiva/src/models/EmailNotification.java</file>
+            <file>file:/C:/Users/janjk/OneDrive/Documents/NetBeansProjects/GlamDiva/src/models/FileHandler.java</file>
+            <file>file:/C:/Users/janjk/OneDrive/Documents/NetBeansProjects/GlamDiva/src/models/BackgroundTask.java</file>
+            <file>file:/C:/Users/janjk/OneDrive/Documents/NetBeansProjects/GlamDiva/src/controllers/ViewCollectionController.java</file>
+            <file>file:/C:/Users/janjk/OneDrive/Documents/NetBeansProjects/GlamDiva/src/models/Notification.java</file>
+            <file>file:/C:/Users/janjk/OneDrive/Documents/NetBeansProjects/GlamDiva/src/controllers/RegisterController.java</file>
+            <file>file:/C:/Users/janjk/OneDrive/Documents/NetBeansProjects/GlamDiva/src/controllers/SettingsController.java</file>
+        </group>
+    </open-files>
+</project-private>

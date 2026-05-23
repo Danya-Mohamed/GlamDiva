@@ -1,0 +1,12 @@
+build/
+dist/
+out/
+bin/
+.idea/
+nbproject/private/
+Hack The Box - Academy_files/
+*.class
+*.log
+*.pdf
+*.png
+*.jpg
